@@ -1,0 +1,104 @@
+<wsdl:definitions
+     name="Get_SD_UnsettledTrx_BusinessService"
+     targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/SD_PaymentPanel_App/SD_UnsettledTxnDetails/Get_SD_UnsettledTrx_BusinessService"
+     xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/SD_PaymentPanel_App/SD_UnsettledTxnDetails/Get_SD_UnsettledTrx_BusinessService"
+     xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/"
+     xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+     xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/Get_SD_UnsettledTrx_BusinessService"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+  <plt:partnerLinkType name="Get_SD_UnsettledTrx_BusinessService_plt" >
+    <plt:role name="Get_SD_UnsettledTrx_BusinessService_role" >
+      <plt:portType name="tns:Get_SD_UnsettledTrx_BusinessService_ptt" />
+    </plt:role>
+  </plt:partnerLinkType>
+  <plt:partnerLinkType name="Get_SD_UnsettledTrx_BusinessService_plt" >
+    <plt:role name="Get_SD_UnsettledTrx_BusinessService_role" >
+      <plt:portType name="tns:Get_SD_UnsettledTrx_BusinessService_ptt" />
+    </plt:role>
+  </plt:partnerLinkType>
+  <plt:partnerLinkType name="Get_SD_UnsettledTrx_BusinessService_plt" >
+    <plt:role name="Get_SD_UnsettledTrx_BusinessService_role" >
+      <plt:portType name="tns:Get_SD_UnsettledTrx_BusinessService_ptt" />
+    </plt:role>
+  </plt:partnerLinkType>
+  <plt:partnerLinkType name="Get_SD_UnsettledTrx_BusinessService_plt" >
+    <plt:role name="Get_SD_UnsettledTrx_BusinessService_role" >
+      <plt:portType name="tns:Get_SD_UnsettledTrx_BusinessService_ptt" />
+    </plt:role>
+  </plt:partnerLinkType>
+  <plt:partnerLinkType name="Get_SD_UnsettledTrx_BusinessService_plt" >
+    <plt:role name="Get_SD_UnsettledTrx_BusinessService_role" >
+      <plt:portType name="tns:Get_SD_UnsettledTrx_BusinessService_ptt" />
+    </plt:role>
+  </plt:partnerLinkType>
+  <plt:partnerLinkType name="Get_SD_UnsettledTrx_BusinessService_plt" >
+    <plt:role name="Get_SD_UnsettledTrx_BusinessService_role" >
+      <plt:portType name="tns:Get_SD_UnsettledTrx_BusinessService_ptt" />
+    </plt:role>
+  </plt:partnerLinkType>
+  <plt:partnerLinkType name="Get_SD_UnsettledTrx_BusinessService_plt" >
+    <plt:role name="Get_SD_UnsettledTrx_BusinessService_role" >
+      <plt:portType name="tns:Get_SD_UnsettledTrx_BusinessService_ptt" />
+    </plt:role>
+  </plt:partnerLinkType>
+  <plt:partnerLinkType name="Get_SD_UnsettledTrx_BusinessService_plt" >
+    <plt:role name="Get_SD_UnsettledTrx_BusinessService_role" >
+      <plt:portType name="tns:Get_SD_UnsettledTrx_BusinessService_ptt" />
+    </plt:role>
+  </plt:partnerLinkType>
+  <plt:partnerLinkType name="Get_SD_UnsettledTrx_BusinessService_plt" >
+    <plt:role name="Get_SD_UnsettledTrx_BusinessService_role" >
+      <plt:portType name="tns:Get_SD_UnsettledTrx_BusinessService_ptt" />
+    </plt:role>
+  </plt:partnerLinkType>
+  <plt:partnerLinkType name="Get_SD_UnsettledTrx_BusinessService_plt" >
+    <plt:role name="Get_SD_UnsettledTrx_BusinessService_role" >
+      <plt:portType name="tns:Get_SD_UnsettledTrx_BusinessService_ptt" />
+    </plt:role>
+  </plt:partnerLinkType>
+    <wsdl:types>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" >
+        <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/Get_SD_UnsettledTrx_BusinessService" schemaLocation="Get_SD_UnsettledTrx_BusinessService.xsd" />
+      </schema>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" >
+        <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/Get_SD_UnsettledTrx_BusinessService" schemaLocation="Get_SD_UnsettledTrx_BusinessService.xsd" />
+      </schema>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" >
+        <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/Get_SD_UnsettledTrx_BusinessService" schemaLocation="Get_SD_UnsettledTrx_BusinessService.xsd" />
+      </schema>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" >
+        <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/Get_SD_UnsettledTrx_BusinessService" schemaLocation="Get_SD_UnsettledTrx_BusinessService.xsd" />
+      </schema>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" >
+        <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/Get_SD_UnsettledTrx_BusinessService" schemaLocation="Get_SD_UnsettledTrx_BusinessService.xsd" />
+      </schema>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" >
+        <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/Get_SD_UnsettledTrx_BusinessService" schemaLocation="Get_SD_UnsettledTrx_BusinessService.xsd" />
+      </schema>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" >
+        <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/Get_SD_UnsettledTrx_BusinessService" schemaLocation="Get_SD_UnsettledTrx_BusinessService.xsd" />
+      </schema>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" >
+        <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/Get_SD_UnsettledTrx_BusinessService" schemaLocation="Get_SD_UnsettledTrx_BusinessService.xsd" />
+      </schema>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" >
+        <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/Get_SD_UnsettledTrx_BusinessService" schemaLocation="Get_SD_UnsettledTrx_BusinessService.xsd" />
+      </schema>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" >
+        <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/Get_SD_UnsettledTrx_BusinessService" schemaLocation="Get_SD_UnsettledTrx_BusinessService.xsd" />
+      </schema>
+    </wsdl:types>
+    <wsdl:message name="Get_SD_UnsettledTrx_BusinessServiceInput_msg">
+        <wsdl:part name="Get_SD_UnsettledTrx_BusinessServiceInput_msg" element="db:Get_SD_UnsettledTrx_BusinessServiceInput"/>
+    </wsdl:message>
+    <wsdl:message name="Get_SD_UnsettledTrx_BusinessServiceOutputCollection_msg">
+        <wsdl:part name="Get_SD_UnsettledTrx_BusinessServiceOutputCollection" element="db:Get_SD_UnsettledTrx_BusinessServiceOutputCollection"/>
+    </wsdl:message>
+    <wsdl:portType name="Get_SD_UnsettledTrx_BusinessService_ptt">
+        <wsdl:operation name="Get_SD_UnsettledTrx_BusinessService">
+            <wsdl:input message="tns:Get_SD_UnsettledTrx_BusinessServiceInput_msg"/>
+            <wsdl:output message="tns:Get_SD_UnsettledTrx_BusinessServiceOutputCollection_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

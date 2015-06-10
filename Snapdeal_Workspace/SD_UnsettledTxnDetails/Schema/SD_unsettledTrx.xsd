@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.unsettledTrx.org"
+            targetNamespace="http://www.unsettledTrx.org" elementFormDefault="qualified">
+  <xsd:element name="UnsettledTrxInput" type="UnsettledTrxComplexInput"/>
+  <xsd:complexType name="UnsettledTrxComplexInput">
+    <xsd:sequence>
+      <xsd:element name="lastUpdated" type="xsd:dateTime"/>
+      <xsd:element name="start" type="xsd:integer"/>
+      <xsd:element name="pageSize" type="xsd:integer"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="UnsettledTrxComplexOutput">
+    <xsd:sequence>
+      <xsd:element name="transactionDate" type="xsd:dateTime"/>
+      <xsd:element name="suborderTxnId" type="xsd:string"/>
+      <xsd:element name="transactionType" type="xsd:string"/>
+      <xsd:element name="transactionReason" type="xsd:string"/>
+      <xsd:element name="sellerCode" type="xsd:string"/>
+      <xsd:element name="productName" type="xsd:string"/>
+      <xsd:element name="sellerSku" type="xsd:string"/>
+      <xsd:element name="webSalePrice" type="xsd:string"/>
+      <xsd:element name="onHold" type="xsd:boolean"/>
+      <xsd:element name="dueAmount" type="xsd:string"/>
+	  <xsd:element name="dueDate" type="xsd:dateTime"/>
+      <xsd:element name="action" type="xsd:string"/>
+      <xsd:element name="created" type="xsd:dateTime"/>
+      <xsd:element name="updated" type="xsd:dateTime"/>
+      <xsd:element name="error" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="UnsettledTrxOutput" type="UnsettledTrxComplexCollectiontype"/>
+  <xsd:complexType name="UnsettledTrxComplexCollectiontype">
+    <xsd:sequence>
+      <xsd:element name="UnsettledTrxComplexCollection" type="UnsettledTrxComplexOutput" minOccurs="0"
+                   maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="Error" type="xsd:string"/>
+</xsd:schema>

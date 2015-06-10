@@ -1,0 +1,13 @@
+<adapter-config name="SD_PaymentTermDetails_PR_businessService" adapter="db" wsdlLocation="SD_PaymentTermDetails_PR_businessService.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory UIConnectionName="SD_UAT" location="eis/db/snap_erp_uat"/>
+  <endpoint-interaction portType="SD_PaymentTermDetails_PR_businessService_ptt" operation="SD_PaymentTermDetails_PR_businessService">
+    <interaction-spec className="oracle.tip.adapter.db.DBStoredProcedureInteractionSpec">
+      <property name="SchemaName" value="APPS"/>
+      <property name="PackageName" value="XXSD_SELLER_DETAIL_PKG"/>
+      <property name="ProcedureName" value="XXSD_PAYMENT_DUE_DATE_PR"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+    </interaction-spec>
+  </endpoint-interaction>
+
+</adapter-config>

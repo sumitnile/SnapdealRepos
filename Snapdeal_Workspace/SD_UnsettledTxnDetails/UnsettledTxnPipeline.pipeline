@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config" xmlns:con3="http://www.bea.com/wli/sb/stages/logging/config">
+    <con:coreEntry>
+        <con:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType">
+            <con:wsdl ref="SD_UnsettledTxnDetails/Resources/SD_UnsettledTxn_Service"/>
+            <con:binding>
+                <con:name>SD_UnsettledTxn_Service_ptt-binding</con:name>
+                <con:namespace>http://xmlns.oracle.com/SD_PaymentPanel_App/SD_UnsettledTxnDetails/SD_UnsettledTxn_Service</con:namespace>
+            </con:binding>
+        </con:binding>
+        <con:xqConfiguration>
+            <con:snippetVersion>1.0</con:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:router>
+        <con:pipeline type="request" name="request-a7d020d.N7b5418de.0.14dc3ce7482.N8000">
+            <con:stage id="_StageId-a7d022e.N6f2fc4b7.0.14dd1836dd9.N7ebe" name="Validation and DB Stage">
+                <con:context>
+                    <con2:userNsDecl prefix="uns" namespace="http://www.unsettledTrx.org"/>
+                </con:context>
+                <con:actions>
+                    <con1:ifThenElse>
+                        <con2:id>_ActionId-a7d022e.N6f2fc4b7.0.14dd1836dd9.N7ebd</con2:id>
+                        <con1:case id="_BranchId-a7d022e.N6f2fc4b7.0.14dd1836dd9.N7ebc">
+                            <con1:condition>
+                                <con2:xqueryConditionExpr>
+                                    <con2:boolExpr operator="and">
+                                        <con2:compExpr operator=">">
+                                            <con2:leftPath>$body/uns:UnsettledTrxInput/uns:start</con2:leftPath>
+                                            <con2:rightPath>xs:decimal(0)</con2:rightPath>
+                                        </con2:compExpr>
+                                        <con2:compExpr operator=">">
+                                            <con2:leftPath>$body/uns:UnsettledTrxInput/uns:pageSize</con2:leftPath>
+                                            <con2:rightPath>xs:decimal(0)</con2:rightPath>
+                                        </con2:compExpr>
+                                        <con2:compExpr operator="&lt;">
+                                            <con2:leftPath>$body/uns:UnsettledTrxInput/uns:lastUpdated</con2:leftPath>
+                                            <con2:rightPath>fn:current-dateTime()</con2:rightPath>
+                                        </con2:compExpr>
+                                    </con2:boolExpr>
+                                </con2:xqueryConditionExpr>
+                            </con1:condition>
+                            <con1:actions>
+                                <con1:javaCallout varName="javaOut">
+                                    <con2:id>_ActionId-a7d022e.N65f6eae2.0.14dd6cdbee3.N7fea</con2:id>
+                                    <con1:archive ref="SD_UnsettledTxnDetails/DateConvertion"/>
+                                    <con1:className>DateConvert</con1:className>
+                                    <con1:method>public static java.lang.String convert(java.lang.String)</con1:method>
+                                    <con1:expr>
+                                        <con2:xqueryText>xs:string($body/uns:UnsettledTrxInput/uns:lastUpdated)</con2:xqueryText>
+                                    </con1:expr>
+                                    <con1:return-param-as-ref>false</con1:return-param-as-ref>
+                                </con1:javaCallout>
+                                <con1:assign varName="flag">
+                                    <con2:id>_ActionId-a7d022e.N6f2fc4b7.0.14dd1836dd9.N7db2</con2:id>
+                                    <con1:expr>
+                                        <con2:xqueryText>xs:decimal(1)</con2:xqueryText>
+                                    </con1:expr>
+                                </con1:assign>
+                                <con1:assign varName="GetInput">
+                                    <con2:id>_ActionId-7f000001.N6188d510.0.14dd722ab9f.N7fc4</con2:id>
+                                    <con1:expr>
+                                        <con2:xqueryText><![CDATA[fn-bea:inlinedXML(concat('<get:Get_SD_UnsettledTrx_BusinessServiceInput xmlns:get="http://xmlns.oracle.com/pcbpel/adapter/db/Get_SD_UnsettledTrx_BusinessService"><get:UpdatedDate>',$javaOut,'</get:UpdatedDate><get:start>',$body/uns:UnsettledTrxInput/uns:start,'</get:start><get:pagesize>',$body/uns:UnsettledTrxInput/uns:start+$body/uns:UnsettledTrxInput/uns:pageSize,'</get:pagesize></get:Get_SD_UnsettledTrx_BusinessServiceInput>'))]]></con2:xqueryText>
+                                    </con1:expr>
+                                </con1:assign>
+                                <con1:wsCallout>
+                                    <con2:id>_ActionId-a7d022e.N6f2fc4b7.0.14dd1836dd9.N7e29</con2:id>
+                                    <con1:service ref="SD_UnsettledTxnDetails/BusinessServices/Get_SD_UnsettledTrx_BusinessService" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                                    <con1:operation>Get_SD_UnsettledTrx_BusinessService</con1:operation>
+                                    <con1:request>
+                                        <con1:body wrapped="false">GetInput</con1:body>
+                                    </con1:request>
+                                    <con1:response>
+                                        <con1:body wrapped="false">GetOutput</con1:body>
+                                    </con1:response>
+                                    <con1:requestTransform/>
+                                    <con1:responseTransform/>
+                                </con1:wsCallout>
+                            </con1:actions>
+                        </con1:case>
+                        <con1:default>
+                            <con1:ifThenElse>
+                                <con2:id>_ActionId-a7d022e.N6f2fc4b7.0.14dd1836dd9.N7dec</con2:id>
+                                <con1:case id="_BranchId-a7d022e.N6f2fc4b7.0.14dd1836dd9.N7deb">
+                                    <con1:condition>
+                                        <con2:xqueryConditionExpr>
+                                            <con2:compExpr operator="&lt;">
+                                                <con2:leftPath>xs:dateTime($body/uns:UnsettledTrxInput/uns:lastUpdated)</con2:leftPath>
+                                                <con2:rightPath>fn:current-dateTime()</con2:rightPath>
+                                            </con2:compExpr>
+                                        </con2:xqueryConditionExpr>
+                                    </con1:condition>
+                                    <con1:actions>
+                                        <con1:assign varName="flag">
+                                            <con2:id>_ActionId-a7d022e.N6f2fc4b7.0.14dd1836dd9.N7db8</con2:id>
+                                            <con1:expr>
+                                                <con2:xqueryText>xs:decimal(2)</con2:xqueryText>
+                                            </con1:expr>
+                                        </con1:assign>
+                                    </con1:actions>
+                                </con1:case>
+                                <con1:default>
+                                    <con1:assign varName="flag">
+                                        <con2:id>_ActionId-a7d022e.N6f2fc4b7.0.14dd1836dd9.N7db5</con2:id>
+                                        <con1:expr>
+                                            <con2:xqueryText>xs:decimal(3)</con2:xqueryText>
+                                        </con1:expr>
+                                    </con1:assign>
+                                </con1:default>
+                            </con1:ifThenElse>
+                        </con1:default>
+                    </con1:ifThenElse>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="response" name="response-a7d020d.N7b5418de.0.14dc3ce7482.N7fff">
+            <con:stage id="_StageId-a7d020d.N7b5418de.0.14dc3ce7482.N7ffd" name="Stage3">
+                <con:context>
+                    <con2:userNsDecl prefix="uns" namespace="http://www.unsettledTrx.org"/>
+                </con:context>
+                <con:actions>
+                    <con1:ifThenElse>
+                        <con2:id>_ActionId-a7d022e.N6f2fc4b7.0.14dd1836dd9.N7da8</con2:id>
+                        <con1:case id="_BranchId-a7d022e.N6f2fc4b7.0.14dd1836dd9.N7da7">
+                            <con1:condition>
+                                <con2:xqueryConditionExpr>
+                                    <con2:compExpr operator="=">
+                                        <con2:leftPath>xs:decimal($flag)</con2:leftPath>
+                                        <con2:rightPath>xs:decimal(1)</con2:rightPath>
+                                    </con2:compExpr>
+                                </con2:xqueryConditionExpr>
+                            </con1:condition>
+                            <con1:actions>
+                                <con1:replace varName="body" contents-only="true">
+                                    <con2:id>_ActionId-a7d022e.N6f2fc4b7.0.14dd1836dd9.N7da0</con2:id>
+                                    <con1:location>
+                                        <con2:xpathText>.</con2:xpathText>
+                                    </con1:location>
+                                    <con1:expr>
+                                        <con2:xqueryText>$GetOutput</con2:xqueryText>
+                                    </con1:expr>
+                                </con1:replace>
+                                <con1:replace varName="body" contents-only="true">
+                                    <con2:id>_ActionId-a7d022e.N6f2fc4b7.0.14dd1836dd9.N7d9d</con2:id>
+                                    <con1:location>
+                                        <con2:xpathText>.</con2:xpathText>
+                                    </con1:location>
+                                    <con1:expr>
+                                        <con2:xsltTransform>
+                                            <con2:resource ref="SD_UnsettledTxnDetails/XSL/GetUnsettledOutputMap"/>
+                                            <con2:input>$body/*</con2:input>
+                                        </con2:xsltTransform>
+                                    </con1:expr>
+                                </con1:replace>
+                            </con1:actions>
+                        </con1:case>
+                        <con1:case id="_BranchId-a7d022e.N6f2fc4b7.0.14dd1836dd9.N7da5">
+                            <con1:condition>
+                                <con2:xqueryConditionExpr>
+                                    <con2:compExpr operator="=">
+                                        <con2:leftPath>xs:decimal($flag)</con2:leftPath>
+                                        <con2:rightPath>xs:decimal(3)</con2:rightPath>
+                                    </con2:compExpr>
+                                </con2:xqueryConditionExpr>
+                            </con1:condition>
+                            <con1:actions>
+                                <con1:replace varName="body" contents-only="true">
+                                    <con2:id>_ActionId-a7d022e.N6f2fc4b7.0.14dd1836dd9.N7d9a</con2:id>
+                                    <con1:location>
+                                        <con2:xpathText>.</con2:xpathText>
+                                    </con1:location>
+                                    <con1:expr>
+                                        <con2:xsltTransform>
+                                            <con2:resource ref="SD_UnsettledTxnDetails/XSL/ErrorOnDate"/>
+                                            <con2:input>$body/*</con2:input>
+                                        </con2:xsltTransform>
+                                    </con1:expr>
+                                </con1:replace>
+                            </con1:actions>
+                        </con1:case>
+                        <con1:case id="_BranchId-a7d022e.N6f2fc4b7.0.14dd1836dd9.N7da3">
+                            <con1:condition>
+                                <con2:xqueryConditionExpr>
+                                    <con2:compExpr operator="=">
+                                        <con2:leftPath>xs:decimal($flag)</con2:leftPath>
+                                        <con2:rightPath>xs:decimal(2)</con2:rightPath>
+                                    </con2:compExpr>
+                                </con2:xqueryConditionExpr>
+                            </con1:condition>
+                            <con1:actions>
+                                <con1:replace varName="body" contents-only="true">
+                                    <con2:id>_ActionId-a7d022e.N6f2fc4b7.0.14dd1836dd9.N7d97</con2:id>
+                                    <con1:location>
+                                        <con2:xpathText>.</con2:xpathText>
+                                    </con1:location>
+                                    <con1:expr>
+                                        <con2:xsltTransform>
+                                            <con2:resource ref="SD_UnsettledTxnDetails/XSL/ErrorOnSize"/>
+                                            <con2:input>$body/*</con2:input>
+                                        </con2:xsltTransform>
+                                    </con1:expr>
+                                </con1:replace>
+                            </con1:actions>
+                        </con1:case>
+                        <con1:default/>
+                    </con1:ifThenElse>
+                    <con1:replace varName="body" contents-only="true">
+                        <con2:id>_ActionId-a7d020d.N7b5418de.0.14dc3ce7482.N7ff3</con2:id>
+                        <con2:disabled>true</con2:disabled>
+                        <con1:location>
+                            <con2:xpathText>.</con2:xpathText>
+                        </con1:location>
+                        <con1:expr>
+                            <con2:xsltTransform>
+                                <con2:resource ref="SD_UnsettledTxnDetails/XSL/GetUnsettledOutputMap"/>
+                                <con2:input>$body/*</con2:input>
+                            </con2:xsltTransform>
+                        </con1:expr>
+                    </con1:replace>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:flow>
+            <con:pipeline-node name="PipelinePairNode1">
+                <con:request>request-a7d020d.N7b5418de.0.14dc3ce7482.N8000</con:request>
+                <con:response>response-a7d020d.N7b5418de.0.14dc3ce7482.N7fff</con:response>
+            </con:pipeline-node>
+        </con:flow>
+    </con:router>
+</con:pipelineEntry>

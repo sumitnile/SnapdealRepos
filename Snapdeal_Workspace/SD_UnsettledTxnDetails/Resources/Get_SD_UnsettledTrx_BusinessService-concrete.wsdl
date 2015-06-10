@@ -1,0 +1,15 @@
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/SD_PaymentPanel_App/SD_UnsettledTxnDetails/Get_SD_UnsettledTrx_BusinessService" name="Get_SD_UnsettledTrx_BusinessService-concrete" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:import location="Get_SD_UnsettledTrx_BusinessService.wsdl" namespace="http://xmlns.oracle.com/pcbpel/adapter/db/SD_PaymentPanel_App/SD_UnsettledTxnDetails/Get_SD_UnsettledTrx_BusinessService"/>
+    <wsdl:binding name="Get_SD_UnsettledTrx_BusinessService_ptt-binding" type="get:Get_SD_UnsettledTrx_BusinessService_ptt" xmlns:get="http://xmlns.oracle.com/pcbpel/adapter/db/SD_PaymentPanel_App/SD_UnsettledTxnDetails/Get_SD_UnsettledTrx_BusinessService">
+        <soap:binding style="document" transport="http://www.bea.com/wli/sb/transports/jca"/>
+        <wsdl:operation name="Get_SD_UnsettledTrx_BusinessService">
+            <soap:operation soapAction="Get_SD_UnsettledTrx_BusinessService"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

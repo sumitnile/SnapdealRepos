@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.PaymentTermDetails.org"
+            targetNamespace="http://www.PaymentTermDetails.org" elementFormDefault="qualified">
+  <xsd:element name="SD_PaymentTermDetails_Input" type="SD_PaymentTermDetails_Input_Type">
+    <xsd:annotation>
+      <xsd:documentation>A sample element</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="SD_PaymentTermDetails_Input_Type">
+    <xsd:sequence>
+      <xsd:element name="legacy_code" type="xsd:string"/>
+      <xsd:element name="date" type="xsd:date"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SD_PaymentTermDetails_Output_Type">
+    <xsd:sequence>
+      <xsd:element name="nextpaymentdate" type="xsd:dateTime"/>
+      <xsd:element name="paymentcycle" type="xsd:string"/>
+      <xsd:element name="paymentcycledesc" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="SD_PaymentTermDetails_Output" type="SD_PaymentTermDetails_Output_Type"/>
+</xsd:schema>

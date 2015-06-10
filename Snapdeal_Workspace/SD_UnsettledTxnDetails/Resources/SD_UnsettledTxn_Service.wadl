@@ -1,0 +1,23 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://xmlns.oracle.com/SD_PaymentPanel_App/SD_UnsettledTxnDetails/SD_UnsettledTxn_Service" xmlns:ns0="http://www.unsettledTrx.org" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="SD_UnsettledTxn_Service">RestService</doc>
+   <grammars>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.unsettledTrx.org" schemaLocation="../Schema/SD_unsettledTrx.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/">
+         <method name="GET" soa:wsdlOperation="getTxn">
+            <request>
+               <param name="lastUpdated" style="query" soa:expression="$msg.request/ns0:lastUpdated" default="" type="xsd:dateTime"/>
+               <param name="start" style="query" soa:expression="$msg.request/ns0:start" default="" type="xsd:integer"/>
+               <param name="pageSize" style="query" soa:expression="$msg.request/ns0:pageSize" default="" type="xsd:integer"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:UnsettledTrxOutput" xmlns:cns="http://www.unsettledTrx.org"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

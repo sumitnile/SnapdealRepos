@@ -1,0 +1,36 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xs:schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/SD_02" xmlns="http://xmlns.oracle.com/pcbpel/adapter/db/SD_02" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:element name="SD_02Input" type="SD_02Input"/>
+   <xs:complexType name="SD_02Input">
+      <xs:sequence>
+         <xs:element name="UpdatedDate" type="xs:string" nillable="true"/>
+         <xs:element name="start" type="xs:int" nillable="true"/>
+         <xs:element name="pagesize" type="xs:int" nillable="true"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="SD_02OutputCollection" type="SD_02OutputCollection"/>
+   <xs:complexType name="SD_02OutputCollection">
+      <xs:sequence>
+         <xs:element name="SD_02Output" type="SD_02Output" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="SD_02Output">
+      <xs:sequence>
+         <xs:element name="SHIPPINGDATE" type="xs:dateTime" nillable="true"/>
+         <xs:element name="SUBORDERTXNID" type="xs:string" nillable="true"/>
+         <xs:element name="TRANSACTIONTYPE" type="xs:string" nillable="true"/>
+         <xs:element name="TRANSACTIONREASON" type="xs:string" nillable="true"/>
+         <xs:element name="SELLERCODE" type="xs:string" nillable="true"/>
+         <xs:element name="PRODUCTNAME" type="xs:string" nillable="true"/>
+         <xs:element name="SELLERSKU" type="xs:string" nillable="true"/>
+         <xs:element name="WEBSALEPRICE" type="xs:decimal" nillable="true"/>
+         <xs:element name="ONHOLD" type="xs:string" nillable="true"/>
+         <xs:element name="DUEAMOUNT" type="xs:decimal" nillable="true"/>
+         <xs:element name="DUEDATE" type="xs:dateTime" nillable="true"/>
+         <xs:element name="RECORD_STATUS" type="xs:string" nillable="true"/>
+         <xs:element name="CREATION_DATE" type="xs:dateTime" nillable="true"/>
+         <xs:element name="LAST_UPDATE_DATE" type="xs:dateTime" nillable="true"/>
+         <xs:element name="R" type="xs:decimal" nillable="true"/>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema>

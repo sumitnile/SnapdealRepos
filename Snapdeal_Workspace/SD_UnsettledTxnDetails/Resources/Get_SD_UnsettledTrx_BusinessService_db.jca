@@ -1,0 +1,11 @@
+<adapter-config name="Get_SD_UnsettledTrx_BusinessService" adapter="db" wsdlLocation="Get_SD_UnsettledTrx_BusinessService.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory UIConnectionName="SD_UAT" location="eis/db/snap_erp_uat"/>
+  <endpoint-interaction portType="Get_SD_UnsettledTrx_BusinessService_ptt" operation="Get_SD_UnsettledTrx_BusinessService">
+    <interaction-spec className="oracle.tip.adapter.db.DBPureSQLInteractionSpec">
+      <property name="SqlString" value="SELECT transactiondate,suborderTxnId,transactionType,transactionReason,sellerCode,productName,sellerSku,webSalePrice,onHold,dueAmount,dueDate,action,created,updated from(select m.SHIPPINGDATE as transactiondate,m.suborderTxnId as suborderTxnId,m.transactionType as transactionType,m.transactionReason as transactionReason,m.sellerCode as sellerCode,m.productName as productName, m.sellerSku as sellerSku,m.webSalePrice as webSalePrice,m.onHold as onHold,m.dueAmount as dueAmount,m.dueDate as dueDate,m.RECORD_STATUS as action,m.CREATION_DATE as created,m.LAST_UPDATE_DATE as updated,rownum r   from xxsd_seller_unsettle_trx m where TO_CHAR(m.LAST_UPDATE_DATE,'DD-MM-YY')=#UpdatedDate)where r>=#start and r&lt;#pagesize"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+    </interaction-spec>
+  </endpoint-interaction>
+
+</adapter-config>

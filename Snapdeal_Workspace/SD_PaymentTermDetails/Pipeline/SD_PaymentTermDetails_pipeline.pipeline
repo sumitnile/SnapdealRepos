@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+    <con:coreEntry>
+        <con:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType">
+            <con:wsdl ref="SD_PaymentTermDetails/Resources/SD_PaymentTermDetails_Service"/>
+            <con:binding>
+                <con:name>SD_PaymentTermDetails_Service_ptt-binding</con:name>
+                <con:namespace>http://xmlns.oracle.com/SD_PaymentPanel_App/SD_PaymentTermDetails/SD_PaymentTermDetails_Service</con:namespace>
+            </con:binding>
+        </con:binding>
+        <con:xqConfiguration>
+            <con:snippetVersion>1.0</con:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:router>
+        <con:pipeline type="request" name="request-a7d022e.N4b35d88b.0.14ddc4039a2.N8000">
+            <con:stage id="_StageId-a7d022e.N4b35d88b.0.14ddc4039a2.N7ffe" name="Stage1">
+                <con:context>
+                    <con2:userNsDecl prefix="pay" namespace="http://www.PaymentTermDetails.org"/>
+                </con:context>
+                <con:actions>
+                    <con1:javaCallout varName="javaOut">
+                        <con2:id>_ActionId-a7d022e.N4b35d88b.0.14ddc4039a2.N7fed</con2:id>
+                        <con1:archive ref="SD_PaymentTermDetails/Pipeline/DateSplit"/>
+                        <con1:className>DateConvert</con1:className>
+                        <con1:method>public static java.lang.String convert(java.lang.String)</con1:method>
+                        <con1:expr>
+                            <con2:xqueryText>fn:string($body/pay:SD_PaymentTermDetails_Input/pay:date)</con2:xqueryText>
+                        </con1:expr>
+                        <con1:return-param-as-ref>false</con1:return-param-as-ref>
+                    </con1:javaCallout>
+                    <con1:assign varName="Dbinput">
+                        <con2:id>_ActionId-a7d022e.N4b35d88b.0.14ddc4039a2.N7ffa</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText><![CDATA[fn-bea:inlinedXML(concat('<sd:InputParameters xmlns:sd="http://xmlns.oracle.com/pcbpel/adapter/db/sp/SD_PaymentTermDetails_PR_businessService"><!--Optional:--><sd:P_LEGACY_CODE>',$body/pay:SD_PaymentTermDetails_Input/pay:legacy_code,'</sd:P_LEGACY_CODE><!--Optional:--><sd:P_DATE>',$javaOut,'</sd:P_DATE></sd:InputParameters>'))]]></con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                    <con1:wsCallout>
+                        <con2:id>_ActionId-a7d022e.N4b35d88b.0.14ddc4039a2.N7ff7</con2:id>
+                        <con1:service ref="SD_PaymentTermDetails/BusinessServices/SD_PaymentTermDetails_PR_businessService" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:operation>SD_PaymentTermDetails_PR_businessService</con1:operation>
+                        <con1:request>
+                            <con1:body wrapped="false">Dbinput</con1:body>
+                        </con1:request>
+                        <con1:response>
+                            <con1:body wrapped="false">Dboutput</con1:body>
+                        </con1:response>
+                        <con1:requestTransform/>
+                        <con1:responseTransform/>
+                    </con1:wsCallout>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="response" name="response-a7d022e.N4b35d88b.0.14ddc4039a2.N7fff">
+            <con:stage id="_StageId-a7d022e.N4b35d88b.0.14ddc4039a2.N7ffd" name="Stage1">
+                <con:context/>
+                <con:actions>
+                    <con1:replace varName="body" contents-only="true">
+                        <con2:id>_ActionId-a7d022e.N4b35d88b.0.14ddc4039a2.N7ff4</con2:id>
+                        <con1:location>
+                            <con2:xpathText>.</con2:xpathText>
+                        </con1:location>
+                        <con1:expr>
+                            <con2:xqueryText>$Dboutput</con2:xqueryText>
+                        </con1:expr>
+                    </con1:replace>
+                    <con1:replace varName="body" contents-only="true">
+                        <con2:id>_ActionId-a7d022e.N4b35d88b.0.14ddc4039a2.N7ff0</con2:id>
+                        <con1:location>
+                            <con2:xpathText>.</con2:xpathText>
+                        </con1:location>
+                        <con1:expr>
+                            <con2:xsltTransform>
+                                <con2:resource ref="SD_PaymentTermDetails/xsl/SD_PaymentTermDetails_output"/>
+                                <con2:input>$body/*</con2:input>
+                            </con2:xsltTransform>
+                        </con1:expr>
+                    </con1:replace>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:flow>
+            <con:pipeline-node name="PaymentTermDetails_pipeline pair">
+                <con:request>request-a7d022e.N4b35d88b.0.14ddc4039a2.N8000</con:request>
+                <con:response>response-a7d022e.N4b35d88b.0.14ddc4039a2.N7fff</con:response>
+            </con:pipeline-node>
+        </con:flow>
+    </con:router>
+</con:pipelineEntry>

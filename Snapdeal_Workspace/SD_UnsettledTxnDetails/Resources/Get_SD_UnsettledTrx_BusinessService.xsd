@@ -1,0 +1,35 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xs:schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/Get_SD_UnsettledTrx_BusinessService" xmlns="http://xmlns.oracle.com/pcbpel/adapter/db/Get_SD_UnsettledTrx_BusinessService" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:element name="Get_SD_UnsettledTrx_BusinessServiceInput" type="Get_SD_UnsettledTrx_BusinessServiceInput"/>
+   <xs:complexType name="Get_SD_UnsettledTrx_BusinessServiceInput">
+      <xs:sequence>
+         <xs:element name="UpdatedDate" type="xs:string" nillable="true"/>
+         <xs:element name="start" type="xs:string" nillable="true"/>
+         <xs:element name="pagesize" type="xs:string" nillable="true"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="Get_SD_UnsettledTrx_BusinessServiceOutputCollection" type="Get_SD_UnsettledTrx_BusinessServiceOutputCollection"/>
+   <xs:complexType name="Get_SD_UnsettledTrx_BusinessServiceOutputCollection">
+      <xs:sequence>
+         <xs:element name="Get_SD_UnsettledTrx_BusinessServiceOutput" type="Get_SD_UnsettledTrx_BusinessServiceOutput" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Get_SD_UnsettledTrx_BusinessServiceOutput">
+      <xs:sequence>
+         <xs:element name="transactiondate" type="xs:dateTime" nillable="true"/>
+         <xs:element name="suborderTxnId" type="xs:string" nillable="true"/>
+         <xs:element name="transactionType" type="xs:string" nillable="true"/>
+         <xs:element name="transactionReason" type="xs:string" nillable="true"/>
+         <xs:element name="sellerCode" type="xs:string" nillable="true"/>
+         <xs:element name="productName" type="xs:string" nillable="true"/>
+         <xs:element name="sellerSku" type="xs:string" nillable="true"/>
+         <xs:element name="webSalePrice" type="xs:decimal" nillable="true"/>
+         <xs:element name="onHold" type="xs:string" nillable="true"/>
+         <xs:element name="dueAmount" type="xs:decimal" nillable="true"/>
+         <xs:element name="dueDate" type="xs:dateTime" nillable="true"/>
+         <xs:element name="action" type="xs:string" nillable="true"/>
+         <xs:element name="created" type="xs:dateTime" nillable="true"/>
+         <xs:element name="UPDATED" type="xs:dateTime" nillable="true"/>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema>
