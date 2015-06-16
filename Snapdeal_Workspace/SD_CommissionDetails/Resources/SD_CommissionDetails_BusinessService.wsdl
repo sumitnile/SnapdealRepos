@@ -1,0 +1,40 @@
+<wsdl:definitions
+     name="SD_CommissionDetails_BusinessService"
+     targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/SD_PaymentPanel_App/SD_CommissionDetails/SD_CommissionDetails_BusinessService"
+     xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/SD_PaymentPanel_App/SD_CommissionDetails/SD_CommissionDetails_BusinessService"
+     xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/"
+     xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+     xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/SD_CommissionDetails_BusinessService"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+  <plt:partnerLinkType name="SD_CommissionDetails_BusinessService_plt" >
+    <plt:role name="SD_CommissionDetails_BusinessService_role" >
+      <plt:portType name="tns:SD_CommissionDetails_BusinessService_ptt" />
+    </plt:role>
+  </plt:partnerLinkType>
+  <plt:partnerLinkType name="SD_CommissionDetails_BusinessService_plt" >
+    <plt:role name="SD_CommissionDetails_BusinessService_role" >
+      <plt:portType name="tns:SD_CommissionDetails_BusinessService_ptt" />
+    </plt:role>
+  </plt:partnerLinkType>
+    <wsdl:types>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" >
+        <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/SD_CommissionDetails_BusinessService" schemaLocation="SD_CommissionDetails_BusinessService.xsd" />
+      </schema>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" >
+        <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/SD_CommissionDetails_BusinessService" schemaLocation="SD_CommissionDetails_BusinessService.xsd" />
+      </schema>
+    </wsdl:types>
+    <wsdl:message name="SD_CommissionDetails_BusinessServiceInput_msg">
+        <wsdl:part name="SD_CommissionDetails_BusinessServiceInput_msg" element="db:SD_CommissionDetails_BusinessServiceInput"/>
+    </wsdl:message>
+    <wsdl:message name="SD_CommissionDetails_BusinessServiceOutputCollection_msg">
+        <wsdl:part name="SD_CommissionDetails_BusinessServiceOutputCollection" element="db:SD_CommissionDetails_BusinessServiceOutputCollection"/>
+    </wsdl:message>
+    <wsdl:portType name="SD_CommissionDetails_BusinessService_ptt">
+        <wsdl:operation name="SD_CommissionDetails_BusinessService">
+            <wsdl:input message="tns:SD_CommissionDetails_BusinessServiceInput_msg"/>
+            <wsdl:output message="tns:SD_CommissionDetails_BusinessServiceOutputCollection_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

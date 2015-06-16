@@ -1,0 +1,24 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://xmlns.oracle.com/SD_PaymentPanel_App/SD_CommissionDetails/CommissionDetailsService" xmlns:ns0="http://www.SD_CommisionDetails.org" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="CommissionDetailsService">RestService</doc>
+   <grammars>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.SD_CommisionDetails.org" schemaLocation="../Schemas/SD_CommisionDetails.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/">
+         <method name="GET" soa:wsdlOperation="Opr">
+            <request>
+               <param name="lastUpdated" style="query" soa:expression="$msg.request/ns0:lastUpdated" default="" type="xsd:string"/>
+               <param name="start" style="query" soa:expression="$msg.request/ns0:start" default="" type="xsd:integer"/>
+               <param name="pageSize" style="query" soa:expression="$msg.request/ns0:pageSize" default="" type="xsd:integer"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml" element="cns:CommissionDetailsOutput" xmlns:cns="http://www.SD_CommisionDetails.org"/>
+               <representation mediaType="application/json" element="cns:CommissionDetailsOutput" xmlns:cns="http://www.SD_CommisionDetails.org"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

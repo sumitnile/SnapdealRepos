@@ -1,0 +1,37 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xs:schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/SD_CommissionDetails_BusinessService" xmlns="http://xmlns.oracle.com/pcbpel/adapter/db/SD_CommissionDetails_BusinessService" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:element name="SD_CommissionDetails_BusinessServiceInput" type="SD_CommissionDetails_BusinessServiceInput"/>
+   <xs:complexType name="SD_CommissionDetails_BusinessServiceInput">
+      <xs:sequence>
+         <xs:element name="updateddate" type="xs:string" nillable="true"/>
+         <xs:element name="start" type="xs:string" nillable="true"/>
+         <xs:element name="pagesize" type="xs:string" nillable="true"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="SD_CommissionDetails_BusinessServiceOutputCollection" type="SD_CommissionDetails_BusinessServiceOutputCollection"/>
+   <xs:complexType name="SD_CommissionDetails_BusinessServiceOutputCollection">
+      <xs:sequence>
+         <xs:element name="SD_CommissionDetails_BusinessServiceOutput" type="SD_CommissionDetails_BusinessServiceOutput" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="SD_CommissionDetails_BusinessServiceOutput">
+      <xs:sequence>
+         <xs:element name="COMMISSION_ID" type="xs:decimal" nillable="true"/>
+         <xs:element name="VENDOR" type="xs:string" nillable="true"/>
+         <xs:element name="CONS_BILL_NUMBER" type="xs:string" nillable="true"/>
+         <xs:element name="BILLING_END_DATE" type="xs:dateTime" nillable="true"/>
+         <xs:element name="PARTY_NAME" type="xs:string" nillable="true"/>
+         <xs:element name="LOCATION" type="xs:decimal" nillable="true"/>
+         <xs:element name="ADDRESS1" type="xs:string" nillable="true"/>
+         <xs:element name="ADDRESS2" type="xs:string" nillable="true"/>
+         <xs:element name="ADDRESS3" type="xs:string" nillable="true"/>
+         <xs:element name="POSTAL_CODE" type="xs:string" nillable="true"/>
+         <xs:element name="CITY" type="xs:string" nillable="true"/>
+         <xs:element name="COUNTRY" type="xs:string" nillable="true"/>
+         <xs:element name="AMOUNT" type="xs:decimal" nillable="true"/>
+         <xs:element name="LINE_TYPE" type="xs:string" nillable="true"/>
+         <xs:element name="R" type="xs:decimal" nillable="true"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="SD_commissionDetailsOB" type="SD_CommissionDetails_BusinessServiceOutputCollection"/>
+</xs:schema>

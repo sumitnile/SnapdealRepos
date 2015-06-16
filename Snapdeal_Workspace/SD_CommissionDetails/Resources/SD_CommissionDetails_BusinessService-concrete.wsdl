@@ -1,0 +1,15 @@
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/SD_PaymentPanel_App/SD_CommissionDetails/SD_CommissionDetails_BusinessService" name="SD_CommissionDetails_BusinessService-concrete" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:import location="SD_CommissionDetails_BusinessService.wsdl" namespace="http://xmlns.oracle.com/pcbpel/adapter/db/SD_PaymentPanel_App/SD_CommissionDetails/SD_CommissionDetails_BusinessService"/>
+    <wsdl:binding name="SD_CommissionDetails_BusinessService_ptt-binding" type="sd:SD_CommissionDetails_BusinessService_ptt" xmlns:sd="http://xmlns.oracle.com/pcbpel/adapter/db/SD_PaymentPanel_App/SD_CommissionDetails/SD_CommissionDetails_BusinessService">
+        <soap:binding style="document" transport="http://www.bea.com/wli/sb/transports/jca"/>
+        <wsdl:operation name="SD_CommissionDetails_BusinessService">
+            <soap:operation soapAction="SD_CommissionDetails_BusinessService"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.SD_CommisionDetails.org"
+            targetNamespace="http://www.SD_CommisionDetails.org" elementFormDefault="qualified">
+ 
+  <xsd:element name="CommissionDetailsInput" type="CommissionDetailsComplexInput"/>
+  <xsd:complexType name="CommissionDetailsComplexInput">
+    <xsd:sequence>
+      <xsd:element name="lastUpdated" type="xsd:string"/>
+      <xsd:element name="start" type="xsd:integer"/>
+      <xsd:element name="pageSize" type="xsd:integer"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CommissionDetailsOutputType">
+    <xsd:sequence>
+      <xsd:element name="sellerCode" type="xsd:string"/>
+      <xsd:element name="consBillNumber" type="xsd:string"/>
+      <xsd:element name="billingEndDate" type="xsd:dateTime"/>
+      <xsd:element name="sellerName" type="xsd:string"/>
+      <xsd:element name="sellerLocation" type="xsd:integer"/>
+      <xsd:element name="addressLine1" type="xsd:string"/>
+      <xsd:element name="addressLine2" type="xsd:string"/>
+      <xsd:element name="addressLine3" type="xsd:string"/>
+      <xsd:element name="postalCode" type="xsd:string"/>
+      <xsd:element name="city" type="xsd:string"/>
+      <xsd:element name="country" type="xsd:string"/>      
+      <xsd:element name="error" type="xsd:string"/>
+      <xsd:element name="commissionHeads" maxOccurs="unbounded" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="commType" type="xsd:string"/>
+            <xsd:element name="commAmount" type="xsd:integer"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="CommissionDetailsOutput" type="CommissionDetCollectiontype"/>
+  <xsd:complexType name="CommissionDetCollectiontype">
+    <xsd:sequence>
+      <xsd:element name="CommissionDetCollection" type="CommissionDetailsOutputType" minOccurs="0"
+                   maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="co_id">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Commission_id" type="xsd:string" maxOccurs="unbounded" minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="xquery_out">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="CommHeads" maxOccurs="unbounded" minOccurs="0">
+          <xsd:complexType>
+            <xsd:sequence>
+            <xsd:element name="commType" type="xsd:string"/>
+        <xsd:element name="commAmount" type="xsd:integer"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="Commission_id" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

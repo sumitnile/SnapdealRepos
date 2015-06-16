@@ -26,6 +26,7 @@
       <string v="oracle.jdeveloper.model.PathsConfiguration/ResourceBundlesContentSet"/>
    </list>
    <list n="listOfChildren">
+      <hash><url n="URL" path="SD_CommissionDetails/SD_CommissionDetails.jpr"/></hash>
       <hash><url n="URL" path="SD_PaymentTermDetails/SD_PaymentTermDetails.jpr"/></hash>
       <hash><url n="URL" path="SD_SettledTrxDetails/SD_SettledTrxDetails.jpr"/></hash>
       <hash><url n="URL" path="SD_UnsettledTxnDetails/SD_UnsettledTxnDetails.jpr"/></hash>
