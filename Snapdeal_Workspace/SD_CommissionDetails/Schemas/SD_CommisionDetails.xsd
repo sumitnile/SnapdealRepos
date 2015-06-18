@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.SD_CommisionDetails.org"
-            targetNamespace="http://www.SD_CommisionDetails.org" elementFormDefault="qualified">
+            targetNamespace="http://www.SD_CommisionDetails.org" elementFormDefault="qualified" >
  
   <xsd:element name="CommissionDetailsInput" type="CommissionDetailsComplexInput"/>
   <xsd:complexType name="CommissionDetailsComplexInput">
@@ -63,4 +63,5 @@
       </xsd:sequence>
     </xsd:complexType>
   </xsd:element>
+<!--<xsd:element name="TempoutXSL" type="tempoutcolllection"/>-->
 </xsd:schema>

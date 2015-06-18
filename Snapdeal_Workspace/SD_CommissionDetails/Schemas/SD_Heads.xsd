@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.SD_Heads.org"
+            targetNamespace="http://www.SD_Heads.org" elementFormDefault="qualified">
+              <xsd:complexType name="CommHeadsType">
+    <xsd:sequence>
+    <xsd:element name="CommHead" maxOccurs="unbounded">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="commType" type="xsd:string"/>
+                    <xsd:element name="commAmount" type="xsd:float"/>
+                    <xsd:element name="Commissionid" type="xsd:integer"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+    </xsd:sequence>
+    
+  </xsd:complexType>
+  <xsd:element name="CommHeads" type="CommHeadsType"/>
+  <xsd:complexType name="genius">
+    <xsd:sequence>
+      <xsd:element name="heads" type="CommHeadsType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="geniusheads" type="genius"/>
+</xsd:schema>

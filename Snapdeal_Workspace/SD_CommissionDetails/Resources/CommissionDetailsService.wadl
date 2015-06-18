@@ -5,18 +5,20 @@
       <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
             <xsd:import namespace="http://www.SD_CommisionDetails.org" schemaLocation="../Schemas/SD_CommisionDetails.xsd"/>
         </xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.SD_Commission_proxy.org" schemaLocation="../Schemas/SD_Commission_proxy.xsd"/>
+        </xsd:schema>
    </grammars>
    <resources>
       <resource path="/">
-         <method name="GET" soa:wsdlOperation="Opr">
+         <method name="GET" soa:wsdlOperation="CommissionDetailsOpr">
             <request>
                <param name="lastUpdated" style="query" soa:expression="$msg.request/ns0:lastUpdated" default="" type="xsd:string"/>
                <param name="start" style="query" soa:expression="$msg.request/ns0:start" default="" type="xsd:integer"/>
                <param name="pageSize" style="query" soa:expression="$msg.request/ns0:pageSize" default="" type="xsd:integer"/>
             </request>
             <response status="200">
-               <representation mediaType="application/xml" element="cns:CommissionDetailsOutput" xmlns:cns="http://www.SD_CommisionDetails.org"/>
-               <representation mediaType="application/json" element="cns:CommissionDetailsOutput" xmlns:cns="http://www.SD_CommisionDetails.org"/>
+               <representation mediaType="application/json" element="cns:TempoutXSL" xmlns:cns="http://www.SD_Commission_proxy.org"/>
             </response>
          </method>
       </resource>

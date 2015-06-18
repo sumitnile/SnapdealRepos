@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.SD_Commissions.org"
+            targetNamespace="http://www.SD_Commissions.org" elementFormDefault="qualified">
+ 
+   <xsd:complexType name="CommissionsType">
+    <xsd:sequence>
+     <xsd:element name="Commission" maxOccurs="unbounded">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="SELLERCODE" type="xsd:string"/>
+                    <xsd:element name="CONSBILLNUMBER" type="xsd:integer"/>
+                    <xsd:element name="BILLINGENDDATE" type="xsd:string"/>
+                    <xsd:element name="SELLERNAME" type="xsd:string"/>
+                     <xsd:element name="LOCATION" type="xsd:decimal"/>
+                     <xsd:element name="ADDRESS1" type="xsd:string" />
+                     <xsd:element name="ADDRESS2" type="xsd:string" />
+                     <xsd:element name="ADDRESS3" type="xsd:string" />
+                     <xsd:element name="POSTAL_CODE" type="xsd:string"/>
+                     <xsd:element name="CITY" type="xsd:string"/>
+                     <xsd:element name="COUNTRY" type="xsd:string"/>
+                    <xsd:element name="Commissionid" type="xsd:integer"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="commisions" type="CommissionsType"/>
+</xsd:schema>
