@@ -19,73 +19,140 @@
                     <con1:userNsDecl prefix="sd" namespace="http://www.SD_CommisionDetails.org"/>
                 </con:context>
                 <con:actions>
-                    <con2:javaCallout varName="javaout">
-                        <con1:id>_ActionId-a7d023c.6ee0b72a.0.14dfb32b26d.N7ffa</con1:id>
-                        <con2:archive ref="SD_CommissionDetails/Pipeline/DateSplit"/>
-                        <con2:className>DateConvert</con2:className>
-                        <con2:method>public static java.lang.String convert(java.lang.String)</con2:method>
-                        <con2:expr>
-                            <con1:xqueryText>fn:string($body/sd:CommissionDetailsInput/sd:lastUpdated)</con1:xqueryText>
-                        </con2:expr>
-                        <con2:return-param-as-ref>false</con2:return-param-as-ref>
-                    </con2:javaCallout>
-                    <con2:assign varName="DbInput">
-                        <con1:id>_ActionId-a7d023c.347afaf2.0.14dfbaa7181.N7ffe</con1:id>
-                        <con2:expr>
-                            <con1:xqueryText><![CDATA[fn-bea:inlinedXML(concat('<sd:SD_CommissionDetails_BusinessServiceInput xmlns:sd="http://xmlns.oracle.com/pcbpel/adapter/db/SD_CommissionDetails_BusinessService"><sd:updateddate>',$javaout,
- '</sd:updateddate><sd:start>',$body/sd:CommissionDetailsInput/sd:start,'</sd:start><sd:pagesize>',
- $body/sd:CommissionDetailsInput/sd:pageSize,'</sd:pagesize></sd:SD_CommissionDetails_BusinessServiceInput>'))]]></con1:xqueryText>
-                        </con2:expr>
-                    </con2:assign>
-                    <con2:wsCallout>
-                        <con1:id>_ActionId-a7d023c.347afaf2.0.14dfbaa7181.N7ffb</con1:id>
-                        <con2:service ref="SD_CommissionDetails/BusinessServices/SD_CommissionDetails_BusinessService" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
-                        <con2:operation>SD_CommissionDetails_BusinessService</con2:operation>
-                        <con2:request>
-                            <con2:body wrapped="false">DbInput</con2:body>
-                        </con2:request>
-                        <con2:response>
-                            <con2:body wrapped="false">DbOut</con2:body>
-                        </con2:response>
-                        <con2:requestTransform/>
-                        <con2:responseTransform/>
-                    </con2:wsCallout>
-                    <con2:assign varName="Commissions">
-                        <con1:id>_ActionId-a7d023c.347afaf2.0.14dfbaa7181.N7fc5</con1:id>
-                        <con2:expr>
-                            <con1:xqueryTransform>
-                                <con1:resource ref="SD_CommissionDetails/Xquery/SD_Commisions"/>
-                                <con1:param name="param1">
-                                    <con1:path>$DbOut</con1:path>
-                                </con1:param>
-                            </con1:xqueryTransform>
-                        </con2:expr>
-                    </con2:assign>
-                    <con2:assign varName="Heads">
-                        <con1:id>_ActionId-7f000001.N70d41e2.0.14e05aa731f.N7ffe</con1:id>
-                        <con2:expr>
-                            <con1:xqueryTransform>
-                                <con1:resource ref="SD_CommissionDetails/Xquery/SD_Heads"/>
-                                <con1:param name="param1">
-                                    <con1:path>$DbOut</con1:path>
-                                </con1:param>
-                            </con1:xqueryTransform>
-                        </con2:expr>
-                    </con2:assign>
-                    <con2:assign varName="Concatinated">
-                        <con1:id>_ActionId-a7d023c.N56c02066.0.14e06659a0e.N7ffe</con1:id>
-                        <con2:expr>
-                            <con1:xqueryTransform>
-                                <con1:resource ref="SD_CommissionDetails/Xquery/my"/>
-                                <con1:param name="var1">
-                                    <con1:path>$Commissions</con1:path>
-                                </con1:param>
-                                <con1:param name="var2">
-                                    <con1:path>$Heads</con1:path>
-                                </con1:param>
-                            </con1:xqueryTransform>
-                        </con2:expr>
-                    </con2:assign>
+                    <con2:ifThenElse>
+                        <con1:id>_ActionId-a7d024b.5f854a53.0.14e19e6e54e.N7ff4</con1:id>
+                        <con2:case id="_BranchId-a7d024b.5f854a53.0.14e19e6e54e.N7ff3">
+                            <con2:condition>
+                                <con1:xqueryConditionExpr>
+                                    <con1:boolExpr operator="and">
+                                        <con1:compExpr operator=">">
+                                            <con1:leftPath>$body/sd:CommissionDetailsInput/sd:start</con1:leftPath>
+                                            <con1:rightPath>xs:decimal(0)</con1:rightPath>
+                                        </con1:compExpr>
+                                        <con1:compExpr operator=">">
+                                            <con1:leftPath>$body/sd:CommissionDetailsInput/sd:pageSize</con1:leftPath>
+                                            <con1:rightPath>xs:decimal(0)</con1:rightPath>
+                                        </con1:compExpr>
+                                        <con1:compExpr operator="&lt;">
+                                            <con1:leftPath>$body/sd:CommissionDetailsInput/sd:lastUpdated</con1:leftPath>
+                                            <con1:rightPath>fn:current-dateTime()</con1:rightPath>
+                                        </con1:compExpr>
+                                    </con1:boolExpr>
+                                </con1:xqueryConditionExpr>
+                            </con2:condition>
+                            <con2:actions>
+                                <con2:javaCallout varName="javaout">
+                                    <con1:id>_ActionId-a7d023c.6ee0b72a.0.14dfb32b26d.N7ffa</con1:id>
+                                    <con2:archive ref="SD_CommissionDetails/Pipeline/DateSplit"/>
+                                    <con2:className>DateConvert</con2:className>
+                                    <con2:method>public static java.lang.String convert(java.lang.String)</con2:method>
+                                    <con2:expr>
+                                        <con1:xqueryText>fn:string($body/sd:CommissionDetailsInput/sd:lastUpdated)</con1:xqueryText>
+                                    </con2:expr>
+                                    <con2:return-param-as-ref>false</con2:return-param-as-ref>
+                                </con2:javaCallout>
+                                <con2:assign varName="flag">
+                                    <con1:id>_ActionId-a7d024b.5f854a53.0.14e19e6e54e.N7fe1</con1:id>
+                                    <con2:expr>
+                                        <con1:xqueryText>xs:decimal(1)</con1:xqueryText>
+                                    </con2:expr>
+                                </con2:assign>
+                                <con2:assign varName="recordcount">
+                                    <con1:id>_ActionId-a7d027a.261557eb.0.14e102226df.N7ffe</con1:id>
+                                    <con2:expr>
+                                        <con1:xqueryText>$body/sd:CommissionDetailsInput/sd:start+$body/sd:CommissionDetailsInput/sd:pageSize</con1:xqueryText>
+                                    </con2:expr>
+                                </con2:assign>
+                                <con2:assign varName="DbInput">
+                                    <con1:id>_ActionId-a7d023c.347afaf2.0.14dfbaa7181.N7ffe</con1:id>
+                                    <con2:expr>
+                                        <con1:xqueryText><![CDATA[fn-bea:inlinedXML(concat('<sd:SD_CommissionDetails_BusinessServiceInput xmlns:sd="http://xmlns.oracle.com/pcbpel/adapter/db/SD_CommissionDetails_BusinessService"><sd:updateddate>',$javaout,
+ '</sd:updateddate><sd:start>',$body/sd:CommissionDetailsInput/sd:start,'</sd:start><sd:pagesize>',$recordcount,'</sd:pagesize></sd:SD_CommissionDetails_BusinessServiceInput>'))]]></con1:xqueryText>
+                                    </con2:expr>
+                                </con2:assign>
+                                <con2:wsCallout>
+                                    <con1:id>_ActionId-a7d023c.347afaf2.0.14dfbaa7181.N7ffb</con1:id>
+                                    <con2:service ref="SD_CommissionDetails/BusinessServices/SD_CommissionDetails_BusinessService" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                                    <con2:operation>SD_CommissionDetails_BusinessService</con2:operation>
+                                    <con2:request>
+                                        <con2:body wrapped="false">DbInput</con2:body>
+                                    </con2:request>
+                                    <con2:response>
+                                        <con2:body wrapped="false">DbOut</con2:body>
+                                    </con2:response>
+                                    <con2:requestTransform/>
+                                    <con2:responseTransform/>
+                                </con2:wsCallout>
+                                <con2:assign varName="Commissions">
+                                    <con1:id>_ActionId-a7d023c.347afaf2.0.14dfbaa7181.N7fc5</con1:id>
+                                    <con2:expr>
+                                        <con1:xqueryTransform>
+                                            <con1:resource ref="SD_CommissionDetails/Xquery/SD_Commisions"/>
+                                            <con1:param name="param1">
+                                                <con1:path>$DbOut</con1:path>
+                                            </con1:param>
+                                        </con1:xqueryTransform>
+                                    </con2:expr>
+                                </con2:assign>
+                                <con2:assign varName="Heads">
+                                    <con1:id>_ActionId-7f000001.N70d41e2.0.14e05aa731f.N7ffe</con1:id>
+                                    <con2:expr>
+                                        <con1:xqueryTransform>
+                                            <con1:resource ref="SD_CommissionDetails/Xquery/SD_Heads"/>
+                                            <con1:param name="param1">
+                                                <con1:path>$DbOut</con1:path>
+                                            </con1:param>
+                                        </con1:xqueryTransform>
+                                    </con2:expr>
+                                </con2:assign>
+                                <con2:assign varName="Concatinated">
+                                    <con1:id>_ActionId-a7d023c.N56c02066.0.14e06659a0e.N7ffe</con1:id>
+                                    <con2:expr>
+                                        <con1:xqueryTransform>
+                                            <con1:resource ref="SD_CommissionDetails/Xquery/my"/>
+                                            <con1:param name="var1">
+                                                <con1:path>$Commissions</con1:path>
+                                            </con1:param>
+                                            <con1:param name="var2">
+                                                <con1:path>$Heads</con1:path>
+                                            </con1:param>
+                                        </con1:xqueryTransform>
+                                    </con2:expr>
+                                </con2:assign>
+                            </con2:actions>
+                        </con2:case>
+                        <con2:default>
+                            <con2:ifThenElse>
+                                <con1:id>_ActionId-a7d024b.5f854a53.0.14e19e6e54e.N7fec</con1:id>
+                                <con2:case id="_BranchId-a7d024b.5f854a53.0.14e19e6e54e.N7feb">
+                                    <con2:condition>
+                                        <con1:xqueryConditionExpr>
+                                            <con1:compExpr operator="&lt;">
+                                                <con1:leftPath>xs:dateTime($body/sd:CommissionDetailsInput/sd:lastUpdated)</con1:leftPath>
+                                                <con1:rightPath>fn:current-dateTime()</con1:rightPath>
+                                            </con1:compExpr>
+                                        </con1:xqueryConditionExpr>
+                                    </con2:condition>
+                                    <con2:actions>
+                                        <con2:assign varName="flag">
+                                            <con1:id>_ActionId-a7d024b.5f854a53.0.14e19e6e54e.N7fde</con1:id>
+                                            <con2:expr>
+                                                <con1:xqueryText>xs:decimal(2)</con1:xqueryText>
+                                            </con2:expr>
+                                        </con2:assign>
+                                    </con2:actions>
+                                </con2:case>
+                                <con2:default>
+                                    <con2:assign varName="flag">
+                                        <con1:id>_ActionId-a7d024b.5f854a53.0.14e19e6e54e.N7fdb</con1:id>
+                                        <con2:expr>
+                                            <con1:xqueryText>xs:decimal(3)</con1:xqueryText>
+                                        </con2:expr>
+                                    </con2:assign>
+                                </con2:default>
+                            </con2:ifThenElse>
+                        </con2:default>
+                    </con2:ifThenElse>
                 </con:actions>
             </con:stage>
         </con:pipeline>
@@ -93,15 +160,79 @@
             <con:stage id="_StageId-7f000001.139256b1.0.14e05569318.N7fff" name="Stage2">
                 <con:context/>
                 <con:actions>
-                    <con2:replace varName="body" contents-only="true">
-                        <con1:id>_ActionId-a7d023c.ea7f6e9.0.14e00c8b240.N7ffa</con1:id>
-                        <con2:location>
-                            <con1:xpathText>.</con1:xpathText>
-                        </con2:location>
-                        <con2:expr>
-                            <con1:xqueryText>$Concatinated</con1:xqueryText>
-                        </con2:expr>
-                    </con2:replace>
+                    <con2:ifThenElse>
+                        <con1:id>_ActionId-a7d024b.5f854a53.0.14e19e6e54e.N7fd4</con1:id>
+                        <con2:case id="_BranchId-a7d024b.5f854a53.0.14e19e6e54e.N7fd3">
+                            <con2:condition>
+                                <con1:xqueryConditionExpr>
+                                    <con1:compExpr operator="=">
+                                        <con1:leftPath>xs:decimal($flag)</con1:leftPath>
+                                        <con1:rightPath>xs:decimal(1)</con1:rightPath>
+                                    </con1:compExpr>
+                                </con1:xqueryConditionExpr>
+                            </con2:condition>
+                            <con2:actions>
+                                <con2:replace varName="body" contents-only="true">
+                                    <con1:id>_ActionId-a7d023c.ea7f6e9.0.14e00c8b240.N7ffa</con1:id>
+                                    <con2:location>
+                                        <con1:xpathText>.</con1:xpathText>
+                                    </con2:location>
+                                    <con2:expr>
+                                        <con1:xqueryText>$Concatinated</con1:xqueryText>
+                                    </con2:expr>
+                                </con2:replace>
+                            </con2:actions>
+                        </con2:case>
+                        <con2:case id="_BranchId-a7d024b.5f854a53.0.14e19e6e54e.N7fa1">
+                            <con2:condition>
+                                <con1:xqueryConditionExpr>
+                                    <con1:compExpr operator="=">
+                                        <con1:leftPath>xs:decimal($flag)</con1:leftPath>
+                                        <con1:rightPath>xs:decimal(3)</con1:rightPath>
+                                    </con1:compExpr>
+                                </con1:xqueryConditionExpr>
+                            </con2:condition>
+                            <con2:actions>
+                                <con2:replace varName="body" contents-only="true">
+                                    <con1:id>_ActionId-a7d024b.5f854a53.0.14e19e6e54e.N7f9b</con1:id>
+                                    <con2:location>
+                                        <con1:xpathText>.</con1:xpathText>
+                                    </con2:location>
+                                    <con2:expr>
+                                        <con1:xsltTransform>
+                                            <con1:resource ref="SD_CommissionDetails/xsl/ErrorOnDate"/>
+                                            <con1:input>$body/*</con1:input>
+                                        </con1:xsltTransform>
+                                    </con2:expr>
+                                </con2:replace>
+                            </con2:actions>
+                        </con2:case>
+                        <con2:case id="_BranchId-a7d024b.5f854a53.0.14e19e6e54e.N7f9f">
+                            <con2:condition>
+                                <con1:xqueryConditionExpr>
+                                    <con1:compExpr operator="=">
+                                        <con1:leftPath>xs:decimal($flag)</con1:leftPath>
+                                        <con1:rightPath>xs:decimal(2)</con1:rightPath>
+                                    </con1:compExpr>
+                                </con1:xqueryConditionExpr>
+                            </con2:condition>
+                            <con2:actions>
+                                <con2:replace contents-only="true" varName="body">
+                                    <con1:id>_ActionId-a7d024b.5f854a53.0.14e19e6e54e.N7f98</con1:id>
+                                    <con2:location>
+                                        <con1:xpathText>.</con1:xpathText>
+                                    </con2:location>
+                                    <con2:expr>
+                                        <con1:xsltTransform>
+                                            <con1:resource ref="SD_CommissionDetails/xsl/ErrorOnSize"/>
+                                            <con1:input>$body/*</con1:input>
+                                        </con1:xsltTransform>
+                                    </con2:expr>
+                                </con2:replace>
+                            </con2:actions>
+                        </con2:case>
+                        <con2:default/>
+                    </con2:ifThenElse>
                 </con:actions>
             </con:stage>
         </con:pipeline>

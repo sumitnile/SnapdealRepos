@@ -39,5 +39,5 @@
       </xsd:sequence>
     </xsd:complexType>
   </xsd:element>
- 
+  <xsd:element name="Error" type="xsd:string"/>
 </xsd:schema>

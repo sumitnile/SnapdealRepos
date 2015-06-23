@@ -1,6 +1,0 @@
-<view_states>
-   <function arity="1" name="func">
-      <source_tree_view last.visible.row="0" last.visible.path="/sourceRoot[[0]]/DbOut[[0]]" expanded.paths="" selected.paths="" first.visible.path="/sourceRoot[[0]]/DbOut[[0]]" first.visible.row="0"/>
-      <target_tree_view last.visible.row="11" last.visible.path="/TargetRoot[[0]]/CommissionDetailsOutput[[0]]/CommissionDetCollection[[0]]/city[[9]]" expanded.paths="/TargetRoot[[0]]/CommissionDetailsOutput[[0]]&#xA;/TargetRoot[[0]]/CommissionDetailsOutput[[0]]/CommissionDetCollection[[0]]&#xA;/TargetRoot[[0]]/CommissionDetailsOutput[[0]]/Conditional[[1]]&#xA;/TargetRoot[[0]]/CommissionDetailsOutput[[0]]/Conditional[[1]]/CommissionDetCollection[[0]]&#xA;/TargetRoot[[0]]/CommissionDetailsOutput[[0]]/Conditional[[1]]/Names[[1]]" selected.paths="" first.visible.path="/TargetRoot[[0]]/CommissionDetailsOutput[[0]]/CommissionDetCollection[[0]]" first.visible.row="1"/>
-   </function>
-</view_states>

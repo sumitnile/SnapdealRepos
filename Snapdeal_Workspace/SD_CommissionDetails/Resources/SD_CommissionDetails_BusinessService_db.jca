@@ -3,7 +3,7 @@
   <connection-factory UIConnectionName="SD_UAT" location="eis/db/snap_erp_uat"/>
   <endpoint-interaction portType="SD_CommissionDetails_BusinessService_ptt" operation="SD_CommissionDetails_BusinessService">
     <interaction-spec className="oracle.tip.adapter.db.DBPureSQLInteractionSpec">
-      <property name="SqlString" value="SELECT * from(select call.COMMISSION_ID,call.VENDOR,call.CONS_BILL_NUMBER,call.BILLING_END_DATE,call.PARTY_NAME, call.LOCATION,call.ADDRESS1,call.ADDRESS2,call.ADDRESS3,call.POSTAL_CODE,call.CITY,call.COUNTRY,clin.AMOUNT,clin.LINE_TYPE, rownum r from APPS.XXSD_COMM_ALL call INNER JOIN APPS.XXSD_COMM_LINES_ALL clin  ON clin.COMMISSION_ID=call.COMMISSION_ID where TO_CHAR(clin.LAST_UPDATE_DATE,'DD-MM-YY')>=#updateddate) where r>=#start and r&lt;#pagesize"/>
+      <property name="SqlString" value="SELECT * from(select call.COMMISSION_ID,call.VENDOR,call.CONS_BILL_NUMBER,call.BILLING_END_DATE,call.PARTY_NAME, call.LOCATION,call.ADDRESS1,call.ADDRESS2,call.ADDRESS3,call.POSTAL_CODE, DENSE_RANK() OVER(ORDER BY clin.COMMISSION_ID)  r,call.CITY,call.COUNTRY,clin.AMOUNT,clin.LINE_TYPE from APPS.XXSD_COMM_ALL call INNER JOIN APPS.XXSD_COMM_LINES_ALL clin  ON clin.COMMISSION_ID=call.COMMISSION_ID where TO_CHAR(clin.LAST_UPDATE_DATE,'DD-MM-YY')>=#updateddate) where r>=#start and r&lt;#pagesize"/>
       <property name="GetActiveUnitOfWork" value="false"/>
     </interaction-spec>
   </endpoint-interaction>

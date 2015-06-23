@@ -196,5 +196,5 @@
          </list>
       </hash>
    </hash>
-   <value n="SOA_TRANSFORMATION_FOLDER_NAME" v="Xsl/"/>
+   <value n="SOA_TRANSFORMATION_FOLDER_NAME" v="xsl/"/>
 </jpr:project>

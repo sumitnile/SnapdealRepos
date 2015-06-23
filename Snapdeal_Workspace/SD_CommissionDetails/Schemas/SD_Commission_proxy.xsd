@@ -17,8 +17,8 @@
                     <xsd:element name="LOCATION" type="xsd:integer"/>
                     <xsd:element name="ADDRESS1" type="xsd:string"/>
                     <xsd:element name="ADDRESS2" type="xsd:string"/>
-                    <xsd:element name="ADDRESS3"/>
-                    <xsd:element name="POSTAL_CODE" type="xsd:integer"/>
+                    <xsd:element name="ADDRESS3" type="xsd:string"/>
+                    <xsd:element name="POSTAL_CODE" type="xsd:string"/>
                     <xsd:element name="CITY" type="xsd:string"/>
                     <xsd:element name="COUNTRY" type="xsd:string"/>
                     <xsd:element name="Commissionid" type="xsd:integer"/>
@@ -43,6 +43,7 @@
             </xsd:sequence>
           </xsd:complexType>
         </xsd:element>
+        <xsd:element name="Error" type="xsd:string"/>
       </xsd:sequence>
     </xsd:complexType>
   </xsd:element>

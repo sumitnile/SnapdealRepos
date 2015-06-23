@@ -26,12 +26,11 @@
          <xs:element name="ADDRESS2" type="xs:string" nillable="true"/>
          <xs:element name="ADDRESS3" type="xs:string" nillable="true"/>
          <xs:element name="POSTAL_CODE" type="xs:string" nillable="true"/>
+         <xs:element name="R" type="xs:decimal" nillable="true"/>
          <xs:element name="CITY" type="xs:string" nillable="true"/>
          <xs:element name="COUNTRY" type="xs:string" nillable="true"/>
          <xs:element name="AMOUNT" type="xs:decimal" nillable="true"/>
          <xs:element name="LINE_TYPE" type="xs:string" nillable="true"/>
-         <xs:element name="R" type="xs:decimal" nillable="true"/>
       </xs:sequence>
    </xs:complexType>
-   <xs:element name="SD_commissionDetailsOB" type="SD_CommissionDetails_BusinessServiceOutputCollection"/>
 </xs:schema>
