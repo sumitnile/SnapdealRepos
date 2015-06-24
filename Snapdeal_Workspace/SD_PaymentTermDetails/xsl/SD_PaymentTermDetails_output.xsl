@@ -32,15 +32,15 @@
   <!--User Editing allowed BELOW this line - DO NOT DELETE THIS LINE-->
   <xsl:template match="/">
     <tns:SD_PaymentTermDetails_Output>
-      <tns:nextpaymentdate>
+      <tns:nextPaymentDate>
         <xsl:value-of select="/ns0:OutputParameters/ns0:P_NEXTPAYMENTDATE"/>
-      </tns:nextpaymentdate>
-      <tns:paymentcycle>
+      </tns:nextPaymentDate>
+      <tns:paymentCycle>
         <xsl:value-of select="/ns0:OutputParameters/ns0:P_PAYMENTCYCLE"/>
-      </tns:paymentcycle>
-      <tns:paymentcycledesc>
+      </tns:paymentCycle>
+      <tns:paymentCycleDesc>
         <xsl:value-of select="/ns0:OutputParameters/ns0:P_PAYMENTCYCLEDESC"/>
-      </tns:paymentcycledesc>
+      </tns:paymentCycleDesc>
     </tns:SD_PaymentTermDetails_Output>
   </xsl:template>
 </xsl:stylesheet>

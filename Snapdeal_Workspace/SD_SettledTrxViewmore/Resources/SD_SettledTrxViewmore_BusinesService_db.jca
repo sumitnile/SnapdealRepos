@@ -1,0 +1,11 @@
+<adapter-config name="SD_SettledTrxViewmore_BusinesService" adapter="db" wsdlLocation="SD_SettledTrxViewmore_BusinesService.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory UIConnectionName="SD_UAT" location="eis/db/snap_erp_uat"/>
+  <endpoint-interaction portType="SD_SettledTrxViewmore_BusinesService_ptt" operation="SD_SettledTrxViewmore_BusinesService">
+    <interaction-spec className="oracle.tip.adapter.db.DBPureSQLInteractionSpec">
+      <property name="SqlString" value="select vmore.AWBNUMBER,vmore.COURIERDETAIL,vmore.CASHBACKAMOUNT,vmore.EMIAMOUNT,vmore.COMMISIONAMOUNT,vmore.FULFILLMENT_FEE,vmore.FULFILLMENT_FEE_WAIVER,vmore.MARKETING_FEE,vmore.PAY_COLLECTION_FEE,vmore.COURIER_FEE,vmore.MERCHANTCUT,vmore.TXNNAME,vmore.TXNAMOUNT,vmore.CUSTOMERNAME,vmore.CUSTOMERCITY,vmore.DELIVEREDDATE,vmore.SETTLEMENTDATE,vmore.RETURNDATE,vmore.KNOCKEDOFF,vmore.TXNNETAMOUNT,vmore.PAYMENTDATE from Apps.xxsd_seller_trx_view_more_v vmore where suborderTxnId = #suborderTxnId and txnType = #txnType and sellerCode = #sellerCode"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+    </interaction-spec>
+  </endpoint-interaction>
+
+</adapter-config>

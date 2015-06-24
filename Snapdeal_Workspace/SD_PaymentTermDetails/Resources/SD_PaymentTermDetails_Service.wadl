@@ -10,7 +10,7 @@
       <resource path="/">
          <method name="GET" soa:wsdlOperation="SD_PaymentTermDetails_Opr">
             <request>
-               <param name="legacy_code" style="query" soa:expression="$msg.request/ns0:legacy_code" default="" type="xsd:string"/>
+               <param name="sellerCode" style="query" soa:expression="$msg.request/ns0:sellerCode" default="" type="xsd:string"/>
                <param name="date" style="query" soa:expression="$msg.request/ns0:date" default="" type="xsd:date"/>
             </request>
             <response status="200">

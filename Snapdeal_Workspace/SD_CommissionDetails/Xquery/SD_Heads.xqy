@@ -16,11 +16,11 @@ declare function local:func($param1 as element() (:: schema-element(ns1:SD_Commi
          
        for $h at $i in $param1/ns1:SD_CommissionDetails_BusinessServiceOutput[ns1:COMMISSION_ID=$d]
            return 
-        <ns2:CommHead>
+        <ns2:commHead>
         <ns2:commType>{fn:data($h/ns1:LINE_TYPE)}</ns2:commType>
         <ns2:commAmount>{fn:data($h/ns1:AMOUNT)}</ns2:commAmount>
-        <ns2:Commissionid>{fn:data($h/ns1:COMMISSION_ID)}</ns2:Commissionid>
-        </ns2:CommHead>
+        <ns2:commissionId>{fn:data($h/ns1:COMMISSION_ID)}</ns2:commissionId>
+        </ns2:commHead>
       }
      </ns2:CommHeadsType>
 };

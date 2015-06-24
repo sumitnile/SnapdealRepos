@@ -31,6 +31,7 @@
          <xs:element name="COUNTRY" type="xs:string" nillable="true"/>
          <xs:element name="AMOUNT" type="xs:decimal" nillable="true"/>
          <xs:element name="LINE_TYPE" type="xs:string" nillable="true"/>
+         <xs:element name="LAST_UPDATE_DATE" type="xs:dateTime" nillable="true"/>
       </xs:sequence>
    </xs:complexType>
 </xs:schema>

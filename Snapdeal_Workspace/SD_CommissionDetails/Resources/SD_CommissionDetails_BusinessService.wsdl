@@ -52,7 +52,15 @@
       <plt:portType name="tns:SD_CommissionDetails_BusinessService_ptt" />
     </plt:role>
   </plt:partnerLinkType>
+  <plt:partnerLinkType name="SD_CommissionDetails_BusinessService_plt" >
+    <plt:role name="SD_CommissionDetails_BusinessService_role" >
+      <plt:portType name="tns:SD_CommissionDetails_BusinessService_ptt" />
+    </plt:role>
+  </plt:partnerLinkType>
     <wsdl:types>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" >
+        <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/SD_CommissionDetails_BusinessService" schemaLocation="SD_CommissionDetails_BusinessService.xsd" />
+      </schema>
       <schema xmlns="http://www.w3.org/2001/XMLSchema" >
         <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/SD_CommissionDetails_BusinessService" schemaLocation="SD_CommissionDetails_BusinessService.xsd" />
       </schema>

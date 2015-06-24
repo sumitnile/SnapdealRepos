@@ -29,6 +29,7 @@
       <hash><url n="URL" path="SD_CommissionDetails/SD_CommissionDetails.jpr"/></hash>
       <hash><url n="URL" path="SD_PaymentTermDetails/SD_PaymentTermDetails.jpr"/></hash>
       <hash><url n="URL" path="SD_SettledTrxDetails/SD_SettledTrxDetails.jpr"/></hash>
+      <hash><url n="URL" path="SD_SettledTrxViewmore/SD_SettledTrxViewmore.jpr"/></hash>
       <hash><url n="URL" path="SD_UnsettledTxnDetails/SD_UnsettledTxnDetails.jpr"/></hash>
    </list>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
@@ -48,6 +49,6 @@
       </hash>
    </hash>
    <hash n="oracle.sb.tooling.ide.core.internal.application.SbApplication">
-      <value n="configContextSessionName" v="OSB-IDE_build_1434625986327"/>
+      <value n="configContextSessionName" v="OSB-IDE_build_1435127143314"/>
    </hash>
 </jws:workspace>

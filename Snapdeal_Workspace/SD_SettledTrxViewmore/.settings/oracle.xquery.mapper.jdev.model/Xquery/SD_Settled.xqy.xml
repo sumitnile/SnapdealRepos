@@ -1,0 +1,6 @@
+<view_states>
+   <function arity="1" name="func">
+      <source_tree_view last.visible.row="18" last.visible.path="/sourceRoot[[0]]/SD_SettledTrxViewmore_BusinesServiceOutputCollection[[0]]/SD_SettledTrxViewmore_BusinesServiceOutput[[0]]/SETTLEMENTDATE[[16]]" expanded.paths="/sourceRoot[[0]]/SD_SettledTrxViewmore_BusinesServiceOutputCollection[[0]]&#xA;/sourceRoot[[0]]/SD_SettledTrxViewmore_BusinesServiceOutputCollection[[0]]/SD_SettledTrxViewmore_BusinesServiceOutput[[0]]" selected.paths="" first.visible.path="/sourceRoot[[0]]/SD_SettledTrxViewmore_BusinesServiceOutputCollection[[0]]" first.visible.row="0"/>
+      <target_tree_view last.visible.row="8" last.visible.path="/TargetRoot[[0]]/SettledTxn_Output[[0]]/transactionDetail[[0]]/paymentDetail[[6]]" expanded.paths="/TargetRoot[[0]]/SettledTxn_Output[[0]]&#xA;/TargetRoot[[0]]/SettledTxn_Output[[0]]/transactionDetail[[0]]" selected.paths="" first.visible.path="/TargetRoot[[0]]/SettledTxn_Output[[0]]" first.visible.row="0"/>
+   </function>
+</view_states>

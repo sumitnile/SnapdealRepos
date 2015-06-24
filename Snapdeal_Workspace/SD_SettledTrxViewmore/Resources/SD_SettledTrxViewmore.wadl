@@ -1,0 +1,23 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://xmlns.oracle.com/SD_PaymentPanel_App/SD_SettledTrxViewmore/SD_SettledTrxViewmore" xmlns:ns0="http://www.SD_settledTxnDetailsViewmore.org" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="SD_SettledTrxViewmore">RestService</doc>
+   <grammars>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.SD_settledTxnDetailsViewmore.org" schemaLocation="../Schemas/SD_settledTxnViewmore.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/">
+         <method name="GET" soa:wsdlOperation="SD_SettledTrxViewmore_Opr">
+            <request>
+               <param name="suborderTxnId" style="query" soa:expression="$msg.request/ns0:suborderTxnId" default="" type="xsd:string"/>
+               <param name="txnType" style="query" soa:expression="$msg.request/ns0:txnType" default="" type="xsd:string"/>
+               <param name="sellerCode" style="query" soa:expression="$msg.request/ns0:sellerCode" default="" type="xsd:string"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:SettledTxn_Output" xmlns:cns="http://www.SD_settledTxnDetailsViewmore.org"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

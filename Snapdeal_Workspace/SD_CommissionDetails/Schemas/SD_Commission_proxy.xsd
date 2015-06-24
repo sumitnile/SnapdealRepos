@@ -4,10 +4,10 @@
   <xsd:element name="TempoutXSL">
     <xsd:complexType>
       <xsd:sequence>
-        <xsd:element name="CommissionDetCollection">
+        <xsd:element name="commissionDetCollection">
           <xsd:complexType>
             <xsd:sequence>
-              <xsd:element name="Commission" maxOccurs="unbounded">
+              <xsd:element name="commission" maxOccurs="unbounded">
                 <xsd:complexType>
                   <xsd:sequence>
                     <xsd:element name="SELLERCODE" type="xsd:string"/>
@@ -28,10 +28,10 @@
             </xsd:sequence>
           </xsd:complexType>
         </xsd:element>
-        <xsd:element name="CommHeads">
+        <xsd:element name="commHeads">
           <xsd:complexType>
             <xsd:sequence>
-              <xsd:element name="CommHead" maxOccurs="unbounded">
+              <xsd:element name="commHead" maxOccurs="unbounded">
                 <xsd:complexType>
                   <xsd:sequence>
                     <xsd:element name="commType" type="xsd:string"/>

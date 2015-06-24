@@ -3,12 +3,12 @@
             targetNamespace="http://www.SD_Heads.org" elementFormDefault="qualified">
               <xsd:complexType name="CommHeadsType">
     <xsd:sequence>
-    <xsd:element name="CommHead" maxOccurs="unbounded">
+    <xsd:element name="commHead" maxOccurs="unbounded">
                 <xsd:complexType>
                   <xsd:sequence>
                     <xsd:element name="commType" type="xsd:string"/>
                     <xsd:element name="commAmount" type="xsd:float"/>
-                    <xsd:element name="Commissionid" type="xsd:integer"/>
+                    <xsd:element name="commissionId" type="xsd:integer"/>
                   </xsd:sequence>
                 </xsd:complexType>
               </xsd:element>

@@ -32,7 +32,7 @@
                     <con1:assign varName="Dbinput">
                         <con2:id>_ActionId-a7d022e.N4b35d88b.0.14ddc4039a2.N7ffa</con2:id>
                         <con1:expr>
-                            <con2:xqueryText><![CDATA[fn-bea:inlinedXML(concat('<sd:InputParameters xmlns:sd="http://xmlns.oracle.com/pcbpel/adapter/db/sp/SD_PaymentTermDetails_PR_businessService"><!--Optional:--><sd:P_LEGACY_CODE>',$body/pay:SD_PaymentTermDetails_Input/pay:legacy_code,'</sd:P_LEGACY_CODE><!--Optional:--><sd:P_DATE>',$javaOut,'</sd:P_DATE></sd:InputParameters>'))]]></con2:xqueryText>
+                            <con2:xqueryText><![CDATA[fn-bea:inlinedXML(concat('<sd:InputParameters xmlns:sd="http://xmlns.oracle.com/pcbpel/adapter/db/sp/SD_PaymentTermDetails_PR_businessService"><!--Optional:--><sd:P_LEGACY_CODE>',$body/pay:SD_PaymentTermDetails_Input/pay:sellerCode,'</sd:P_LEGACY_CODE><!--Optional:--><sd:P_DATE>',$javaOut,'</sd:P_DATE></sd:InputParameters>'))]]></con2:xqueryText>
                         </con1:expr>
                     </con1:assign>
                     <con1:wsCallout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns:composite xmlns:ns="http://xmlns.oracle.com/sca/1.0">
+    <ns:reference>
+        <ns:interface src="BusinessService:SD_SettledTrxViewmore/BusinessServices/SD_SettledTrxViewmore_BusinesService"/>
+    </ns:reference>
+</ns:composite>

@@ -3,15 +3,18 @@
 
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>com.oracle.servicebus</groupId>
+        <artifactId>sbar-project-common</artifactId>
+        <version>12.1.3-0-0</version>
+    </parent>
+
     <groupId>SD_PaymentPanel_App</groupId>
-    <artifactId>SD_PaymentPanel_App</artifactId>
+    <artifactId>SD_SettledTrxViewmore</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <packaging>pom</packaging>
+    <packaging>sbar</packaging>
 
-    <modules>
-        <module>System</module>
-        <module>SD_SettledTrxViewmore</module>
-    </modules>
+    <description/>
 
 </project>

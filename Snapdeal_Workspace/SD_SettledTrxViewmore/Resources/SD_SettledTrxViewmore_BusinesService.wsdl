@@ -1,0 +1,40 @@
+<wsdl:definitions
+     name="SD_SettledTrxViewmore_BusinesService"
+     targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/SD_PaymentPanel_App/SD_SettledTrxViewmore/SD_SettledTrxViewmore_BusinesService"
+     xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/SD_PaymentPanel_App/SD_SettledTrxViewmore/SD_SettledTrxViewmore_BusinesService"
+     xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/"
+     xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+     xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/SD_SettledTrxViewmore_BusinesService"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+  <plt:partnerLinkType name="SD_SettledTrxViewmore_BusinesService_plt" >
+    <plt:role name="SD_SettledTrxViewmore_BusinesService_role" >
+      <plt:portType name="tns:SD_SettledTrxViewmore_BusinesService_ptt" />
+    </plt:role>
+  </plt:partnerLinkType>
+  <plt:partnerLinkType name="SD_SettledTrxViewmore_BusinesService_plt" >
+    <plt:role name="SD_SettledTrxViewmore_BusinesService_role" >
+      <plt:portType name="tns:SD_SettledTrxViewmore_BusinesService_ptt" />
+    </plt:role>
+  </plt:partnerLinkType>
+    <wsdl:types>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" >
+        <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/SD_SettledTrxViewmore_BusinesService" schemaLocation="SD_SettledTrxViewmore_BusinesService.xsd" />
+      </schema>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" >
+        <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/SD_SettledTrxViewmore_BusinesService" schemaLocation="SD_SettledTrxViewmore_BusinesService.xsd" />
+      </schema>
+    </wsdl:types>
+    <wsdl:message name="SD_SettledTrxViewmore_BusinesServiceInput_msg">
+        <wsdl:part name="SD_SettledTrxViewmore_BusinesServiceInput_msg" element="db:SD_SettledTrxViewmore_BusinesServiceInput"/>
+    </wsdl:message>
+    <wsdl:message name="SD_SettledTrxViewmore_BusinesServiceOutputCollection_msg">
+        <wsdl:part name="SD_SettledTrxViewmore_BusinesServiceOutputCollection" element="db:SD_SettledTrxViewmore_BusinesServiceOutputCollection"/>
+    </wsdl:message>
+    <wsdl:portType name="SD_SettledTrxViewmore_BusinesService_ptt">
+        <wsdl:operation name="SD_SettledTrxViewmore_BusinesService">
+            <wsdl:input message="tns:SD_SettledTrxViewmore_BusinesServiceInput_msg"/>
+            <wsdl:output message="tns:SD_SettledTrxViewmore_BusinesServiceOutputCollection_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

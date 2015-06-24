@@ -4,21 +4,23 @@
  
    <xsd:complexType name="CommissionsType">
     <xsd:sequence>
-     <xsd:element name="Commission" maxOccurs="unbounded">
+     <xsd:element name="commission" maxOccurs="unbounded">
                 <xsd:complexType>
                   <xsd:sequence>
-                    <xsd:element name="SELLERCODE" type="xsd:string"/>
-                    <xsd:element name="CONSBILLNUMBER" type="xsd:integer"/>
-                    <xsd:element name="BILLINGENDDATE" type="xsd:string"/>
-                    <xsd:element name="SELLERNAME" type="xsd:string"/>
-                     <xsd:element name="LOCATION" type="xsd:decimal"/>
-                     <xsd:element name="ADDRESS1" type="xsd:string" />
-                     <xsd:element name="ADDRESS2" type="xsd:string" />
-                     <xsd:element name="ADDRESS3" type="xsd:string" />
-                     <xsd:element name="POSTAL_CODE" type="xsd:string"/>
-                     <xsd:element name="CITY" type="xsd:string"/>
-                     <xsd:element name="COUNTRY" type="xsd:string"/>
-                    <xsd:element name="Commissionid" type="xsd:integer"/>
+                    <xsd:element name="sellerCode" type="xsd:string"/>
+                    <xsd:element name="consBillNumber" type="xsd:integer"/>
+                    <xsd:element name="billingEndDate" type="xsd:string"/>
+                    <xsd:element name="sellerName" type="xsd:string"/>
+                     <xsd:element name="location" type="xsd:decimal"/>
+                     <xsd:element name="address1" type="xsd:string" />
+                     <xsd:element name="address2" type="xsd:string" />
+                     <xsd:element name="address3" type="xsd:string" />
+                     <xsd:element name="postalCode" type="xsd:string"/>
+                     <xsd:element name="city" type="xsd:string"/>
+                     <xsd:element name="country" type="xsd:string"/>
+                    <xsd:element name="lastUpdateDate" type="xsd:string"/>
+                    <xsd:element name="commissionId" type="xsd:integer"/>
+                    
                   </xsd:sequence>
                 </xsd:complexType>
               </xsd:element>

@@ -16,12 +16,12 @@ declare function local:func($var1 as element() (:: schema-element(ns1:commisions
                             $var2 as element() (:: schema-element(ns2:CommHeads) ::)) 
                             as element() (:: schema-element(ns3:TempoutXSL) ::) {
     <ns3:TempoutXSL>
-    <ns3:CommissionDetCollection>
+    <ns3:commissionDetCollection>
     {$var1/*}
-    </ns3:CommissionDetCollection>
-    <ns3:CommHeads>
+    </ns3:commissionDetCollection>
+    <ns3:commHeads>
     {$var2/*}
-    </ns3:CommHeads>
+    </ns3:commHeads>
     </ns3:TempoutXSL>
 };
 

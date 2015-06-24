@@ -1,0 +1,42 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xs:schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/SD_SettledTrxViewmore_BusinesService" xmlns="http://xmlns.oracle.com/pcbpel/adapter/db/SD_SettledTrxViewmore_BusinesService" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:element name="SD_SettledTrxViewmore_BusinesServiceInput" type="SD_SettledTrxViewmore_BusinesServiceInput"/>
+   <xs:complexType name="SD_SettledTrxViewmore_BusinesServiceInput">
+      <xs:sequence>
+         <xs:element name="suborderTxnId" type="xs:string" nillable="true"/>
+         <xs:element name="txnType" type="xs:string" nillable="true"/>
+         <xs:element name="sellerCode" type="xs:string" nillable="true"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="SD_SettledTrxViewmore_BusinesServiceOutputCollection" type="SD_SettledTrxViewmore_BusinesServiceOutputCollection"/>
+   <xs:complexType name="SD_SettledTrxViewmore_BusinesServiceOutputCollection">
+      <xs:sequence>
+         <xs:element name="SD_SettledTrxViewmore_BusinesServiceOutput" type="SD_SettledTrxViewmore_BusinesServiceOutput" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="SD_SettledTrxViewmore_BusinesServiceOutput">
+      <xs:sequence>
+         <xs:element name="AWBNUMBER" type="xs:string" nillable="true"/>
+         <xs:element name="COURIERDETAIL" type="xs:string" nillable="true"/>
+         <xs:element name="CASHBACKAMOUNT" type="xs:decimal" nillable="true"/>
+         <xs:element name="EMIAMOUNT" type="xs:decimal" nillable="true"/>
+         <xs:element name="COMMISIONAMOUNT" type="xs:decimal" nillable="true"/>
+         <xs:element name="FULFILLMENT_FEE" type="xs:decimal" nillable="true"/>
+         <xs:element name="FULFILLMENT_FEE_WAIVER" type="xs:decimal" nillable="true"/>
+         <xs:element name="MARKETING_FEE" type="xs:decimal" nillable="true"/>
+         <xs:element name="PAY_COLLECTION_FEE" type="xs:decimal" nillable="true"/>
+         <xs:element name="COURIER_FEE" type="xs:decimal" nillable="true"/>
+         <xs:element name="MERCHANTCUT" type="xs:decimal" nillable="true"/>
+         <xs:element name="TXNNAME" type="xs:string" nillable="true"/>
+         <xs:element name="TXNAMOUNT" type="xs:decimal" nillable="true"/>
+         <xs:element name="CUSTOMERNAME" type="xs:string" nillable="true"/>
+         <xs:element name="CUSTOMERCITY" type="xs:string" nillable="true"/>
+         <xs:element name="DELIVEREDDATE" type="xs:dateTime" nillable="true"/>
+         <xs:element name="SETTLEMENTDATE" type="xs:dateTime" nillable="true"/>
+         <xs:element name="RETURNDATE" type="xs:dateTime" nillable="true"/>
+         <xs:element name="KNOCKEDOFF" type="xs:string" nillable="true"/>
+         <xs:element name="TXNNETAMOUNT" type="xs:decimal" nillable="true"/>
+         <xs:element name="PAYMENTDATE" type="xs:dateTime" nillable="true"/>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema>

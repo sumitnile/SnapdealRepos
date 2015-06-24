@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.SD_settledTxnDetailsViewmore.org"
+            targetNamespace="http://www.SD_settledTxnDetailsViewmore.org" elementFormDefault="qualified">
+  <xsd:element name="SettledTxn_Input" type="SettledTxn_Input_Type">
+  </xsd:element>
+  <xsd:complexType name="SettledTxn_Input_Type">
+    <xsd:sequence>
+      <xsd:element name="suborderTxnId" type="xsd:string"/>
+      <xsd:element name="txnType" type="xsd:string"/>
+      <xsd:element name="sellerCode" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SettledTxn_Output_Type">
+    <xsd:sequence>
+      <xsd:element name="transactionDetail" maxOccurs="unbounded" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="shippingDetails" type="shippingDetails_type"/>
+             <xsd:element name="productDetails" type="productDetails_type"/>
+              <xsd:element name="financialDetails" type="financialDetails_type"/>
+               <xsd:element name="transactionBreakup" type="transactionBreakup_type"/>
+                <xsd:element name="customerDetails" type="customerDetails_type"/>
+                <xsd:element name="orderTimeline" type="orderTimeline_type"/>
+                <xsd:element name="paymentDetail" type="paymentDetail_type"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="shippingDetails_type">
+    <xsd:sequence>
+      <xsd:element name="awbNumber"  type="xsd:string"/>
+      <xsd:element name="courierDetail"  type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="productDetails_type">
+    <xsd:sequence>
+      <xsd:element name="cashbackAmount" type="xsd:string"/>
+      <xsd:element name="emiAmount" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="financialDetails_type">
+    <xsd:sequence>
+      <xsd:element name="commisionAmount" type="xsd:string"/>
+      <xsd:element name="fulfillmentFee" type="xsd:string"/>
+      <xsd:element name="fulfillmentFeeWaiver" type="xsd:string"/>
+      <xsd:element name="marketingFee" type="xsd:string"/>
+      <xsd:element name="paymentCollectionFee" type="xsd:string"/>
+      <xsd:element name="courierFee" type="xsd:string"/>
+      <xsd:element name="merchantCut" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="transactionBreakup_type">
+    <xsd:sequence>
+      <xsd:element name="txnName" type="xsd:string"/>
+       <xsd:element name="txnAmount" type="xsd:string"/>                 
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="customerDetails_type">
+    <xsd:sequence>
+      <xsd:element name="customerName" type="xsd:string"/>
+      <xsd:element name="customerCity" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="orderTimeline_type">
+    <xsd:sequence>
+      <xsd:element name="deliveredDate" type="xsd:dateTime"/>
+      <xsd:element name="settlementDate" type="xsd:dateTime"/>
+      <xsd:element name="returnDate" type="xsd:dateTime"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="paymentDetail_type">
+    <xsd:sequence>
+    <xsd:element name="knockedOff" type="xsd:boolean"/>
+      <xsd:element name="txnNetAmount" type="xsd:string"/>
+      <xsd:element name="paymentDate" type="xsd:dateTime"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="SettledTxn_Output" type="SettledTxn_Output_Type"/>
+</xsd:schema>
